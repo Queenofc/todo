@@ -9,7 +9,7 @@ const Navbar = () => {
         <a href="/create" style={{
             color:"white",
             backgroundColor:'#f1356d',
-            borderRadius:'25px',
+            borderRadius:'30px',
             padding:'10px'
         }}>Add task</a>
       </div>
