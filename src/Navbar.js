@@ -3,7 +3,7 @@ import "./index.css";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <h1>To Do List</h1>
+      <h1>Blog Life</h1>
       <div className="links">
         <a href="/">Home</a>
         <a href="/create" style={{
@@ -11,7 +11,7 @@ const Navbar = () => {
             backgroundColor:'#f1356d',
             borderRadius:'30px',
             padding:'10px'
-        }}>Add task</a>
+        }}>Add Blog</a>
       </div>
     </div>
   );
