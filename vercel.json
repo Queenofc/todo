@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/data/db", "destination": "/data/db.js" }
+      { "source": "/api/db", "destination": "/api/db.js" }
     ]
   }
   
