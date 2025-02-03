@@ -10,8 +10,10 @@ const useFetch = (url) => {
   //the array value is called a dependency and value is a usestate variable
 
   useEffect(() => {
+    const abortCont = new AbortController();
+    //used to stop the running of usefetch while switching to another page
     setTimeout(() => {
-      fetch(url)
+      fetch(url, { signal: abortCont.signal })
         .then((res) => {
           if (!res.ok) {
             // error coming back from server
@@ -26,12 +28,20 @@ const useFetch = (url) => {
         })
         .catch((err) => {
           // auto catches network / connection error
+          if (err.name === "AbortError") {
+            //this is used if there is a switch to a different route
+            console.log("Fetch aborted");
+          }
           setIsPending(false);
           setError(err.message);
         });
     }, 1000);
+    return () => {
+      abortCont.abort();
+      //pauses the fetch
+    };
   }, [url]);
-  return {data,isPending,error}
+  return { data, isPending, error };
 };
 
 export default useFetch;
